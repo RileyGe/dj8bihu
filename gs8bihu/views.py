@@ -48,7 +48,7 @@ class TestView(APIView):
                              r'[a-zA-Z.]*bihu.com/[^<>]*?)&amp;sa[^<>]*>(?P<title>.*?)</a>\s*</h3>[\s\S]*?'
                              r'<span\s*class="st">(?P<snap>[\s\S]*?)</span>', re.I)
 
-        urllist = []
+        urllist = [] #测试
 
         for dict in pattern.finditer(r.text):
             urllist.append(dict.groupdict())
