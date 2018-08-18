@@ -19,5 +19,5 @@ from gs8bihu import views as gsViews  # new
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/gs/', gsViews.TestView.as_view()),
+    path('search/google', gsViews.TestView.as_view()),
 ]
