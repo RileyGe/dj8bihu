@@ -26,7 +26,7 @@ class TestView(APIView):
         url = 'http://www.google.com.hk/search'
         payload = {'ie': 'utf8', 'oe': 'utf8', 'safe': 'strict', 'q': keyword,
                    'num': pagesize, 'start': page * pagesize - pagesize,
-                   'hl': 'zh-CN'}
+                   'hl': 'zh-CN', 'as_eq': 'inurl:people'}
         hdr = {'User-agent': 'Mozilla/11.0'}
         r = requests.get(url, params=payload, headers=hdr)
         r.encoding = 'utf-8'
