@@ -15,8 +15,8 @@ class TestView(APIView):
 
     def get(self, request, *args, **kwargs):
         keyword = request.GET.get('kw', '币乎')
-        page = request.GET.get('pageno', '1')
-        pagesize = request.GET.get('count', '20')
+        page = int(request.GET.get('pageno', '1'))
+        pagesize = int(request.GET.get('count', '20'))
 
         # keyword = '圣杯'
         # page = 1
