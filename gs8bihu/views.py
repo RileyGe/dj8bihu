@@ -14,9 +14,13 @@ class TestView(APIView):
         return super().dispatch(request, *args, **kwargs)
 
     def get(self, request, *args, **kwargs):
-        keyword = '圣杯'
-        page = 1
-        pagesize = 20
+        keyword = request.GET.get('kw', '币乎')
+        page = request.GET.get('pageno', '1')
+        pagesize = request.GET.get('count', '20')
+
+        # keyword = '圣杯'
+        # page = 1
+        # pagesize = 20
         keyword = keyword + ' site:bihu.com'
 
         url = 'http://www.google.com.hk/search'
