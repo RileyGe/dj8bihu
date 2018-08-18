@@ -40,7 +40,7 @@ class TestView(APIView):
             urllist.append(dict.groupdict())
         result = {
             'status': True,
-            'data': r.text
+            'data': urllist
         }
         return JsonResponse(result, status=200)
 
