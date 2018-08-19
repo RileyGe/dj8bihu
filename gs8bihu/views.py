@@ -2,6 +2,9 @@ from rest_framework.views import APIView
 from django.http import JsonResponse
 import requests
 import re
+from gs8bihu import models as gs8modules
+from django.forms.models import model_to_dict
+
 
 
 class TestView(APIView):
@@ -62,5 +65,27 @@ class TestView(APIView):
     def put(self, request, *args, **kwargs):
         result = {
             'status': True,
+        }
+        return JsonResponse(result, status=200)
+
+
+class RecommendedAuthorView(APIView):
+    def dispatch(self, request, *args, **kwargs):
+        """
+        请求到来之后，都要执行dispatch方法，dispatch方法根据请求方式不同触发 get/post/put等方法
+
+        注意：APIView中的dispatch方法有好多好多的功能
+        """
+        return super().dispatch(request, *args, **kwargs)
+
+    def get(self, request, *args, **kwargs):
+        author_list = gs8modules.RecommendAuthor.objects.all()
+        author_dict = []
+        for author in author_list:
+            author_dict.append(model_to_dict(author))
+
+        result = {
+            'status': True,
+            'data': author_dict
         }
         return JsonResponse(result, status=200)

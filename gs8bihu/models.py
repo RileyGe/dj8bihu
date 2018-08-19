@@ -17,5 +17,5 @@ class RecommendAuthor(models.Model):
 
     class Meta:  # 按时间下降排序
         ordering = ['-order']
-        verbose_name = "文章"
-        verbose_name_plural = "文章"
+        verbose_name = "推荐用户"
+        verbose_name_plural = "推荐用户"

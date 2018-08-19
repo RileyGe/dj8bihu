@@ -20,4 +20,5 @@ from gs8bihu import views as gsViews  # new
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('search/google', gsViews.TestView.as_view()),
+    path('data/recommended/author', gsViews.RecommendedAuthorView.as_view())
 ]
